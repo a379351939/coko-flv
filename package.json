@@ -2,12 +2,12 @@
   "name": "coko-flv",
   "version": "0.0.0",
   "files": ["dist"],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/coko-flv.umd.js",
+  "module": "./dist/coko-flv.es.js",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.es.js",
-      "require": "./dist/my-lib.umd.js"
+      "import": "./dist/coko-flv.es.js",
+      "require": "./dist/coko-flv.umd.js"
     }
   },
   "repository": {
