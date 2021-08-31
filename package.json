@@ -10,6 +10,15 @@
       "require": "./dist/my-lib.umd.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a379351939/coko-flv.git"
+  },
+  "author": "tzc",
+  "license": "MIT",
+  "keywords": [
+    "React"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
