@@ -1,9 +1,10 @@
 {
   "name": "coko-flv",
-  "version": "0.0.0",
+  "version": "0.0.11",
   "files": ["dist"],
   "main": "./dist/coko-flv.umd.js",
   "module": "./dist/coko-flv.es.js",
+  "types": "./types/flv.d.ts",
   "exports": {
     ".": {
       "import": "./dist/coko-flv.es.js",
