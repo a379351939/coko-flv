@@ -10,6 +10,7 @@ interface CokoFlvProps {
   diffSpeedUp?: number, // 超过*秒以上则进行视频加速播放
   latest?: number, // 缓冲区最小时间间隔
   delay?: number, // 校验追帧间隔，单位ms
+  reconnectLimit?: number, // 断流重连次数限制
 }
 
 function CokoFlv({ url,
@@ -20,10 +21,12 @@ function CokoFlv({ url,
                    diffSpeedUp = 4,
                    latest = 1,
                    delay = 5000,
+                   reconnectLimit = 3,
                   } : CokoFlvProps) {
   const videoRef = useRef<HTMLVideoElement | null >(null)
   const flvRef = useRef<flvJs.Player | null>(null)
   const timerRef = useRef<number | null>(null)
+  const reconnectCountRef = useRef<number>(0)
 
   const init = useCallback(()=>{
       const videoEle = videoRef.current;
@@ -66,12 +69,15 @@ function CokoFlv({ url,
   }
 
   const reBuild = () => {
-    clearIntervalTimer()
-    dispose()
-    init()
-    setTimeout(()=>{
-      flvRef.current && flvRef.current.play()
-    }, 500)
+    if(reconnectCountRef.current < reconnectLimit){
+      clearIntervalTimer()
+      dispose()
+      init()
+      reconnectCountRef.current++
+      setTimeout(()=>{
+        flvRef.current && flvRef.current.play()
+      }, 500)
+    }
   }
 
 
