@@ -43,8 +43,8 @@ function CokoFlv({ url,
         player.load()
         player.on(flvJs.Events.ERROR, onVideoErr);
         flvRef.current = player;
-        videoEle.onplay = onVideoPlay
-        videoEle.onpaste = onVideoPause
+        videoEle.addEventListener('play',onVideoPlay)
+        videoEle.addEventListener('pause', onVideoPause)
       }
     }, [url]
   )
@@ -63,8 +63,8 @@ function CokoFlv({ url,
     }
 
     if(videoEle) {
-      videoEle.onplay = null
-      videoEle.onpause = null
+      videoEle.removeEventListener('play', onVideoPlay)
+      videoEle.removeEventListener('pause', onVideoPause)
     }
   }
 

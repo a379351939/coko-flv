@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/main.js'),
+      entry: path.resolve(__dirname, 'src/output.js'),
       name: 'CokoFlv',
       formats: ["es"],
       fileName: "index",

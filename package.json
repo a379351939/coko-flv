@@ -1,6 +1,6 @@
 {
   "name": "coko-flv",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "files": ["dist","types"],
   "main": "./dist/index.es.js",
   "types": "./types/index.d.ts",
