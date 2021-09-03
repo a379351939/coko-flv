@@ -21,7 +21,7 @@ function CokoFlv({ url,
                    diffSpeedUp = 4,
                    latest = 1,
                    delay = 5000,
-                   reconnectLimit = 3,
+                   reconnectLimit = 5,
                   } : CokoFlvProps) {
   const videoRef = useRef<HTMLVideoElement | null >(null)
   const flvRef = useRef<flvJs.Player | null>(null)
@@ -95,16 +95,16 @@ function CokoFlv({ url,
     if(videoEle === null)  return
     if(player !== null) {
       timerRef.current = window.setInterval(() => {
-        const currentTime = player.currentTime
-        const buffered = player.buffered
+        const currentTime = videoEle.currentTime
+        const buffered = videoEle.buffered
 
-        if(player.currentTime === 0) return
+        if(currentTime === 0) return
         if(buffered.length > 0) {
           const end = buffered.end(0)
           const diff = end - currentTime
           let playbackRate = 1.0
           if(diff > diffCritical) { //进行跳转
-            player.currentTime = end - latest
+            videoEle.currentTime = end - latest
           } else if(diff > diffSpeedUp) { // 加速播放
             const diffRate = 1 + diff/(delay/1000)
             playbackRate = Math.max(1, Math.min(diffRate, maxPlaybackRate))
