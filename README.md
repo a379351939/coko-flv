@@ -2,7 +2,7 @@
 
 ### 介绍
 一个用来播放实时流的React组件。只适用于直播场景。
-基于[flv.js](https://github.com/Bilibili/flv.js)做了一层封装，加入追帧，跳帧，重连的功能。
+基于[flv.js](https://github.com/Bilibili/flv.js)封装，加入追帧，跳帧，重连的功能。
 
 
 ### 使用
