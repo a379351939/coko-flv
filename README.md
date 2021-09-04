@@ -23,7 +23,7 @@ function App() {
 ### API
 | 参数  | 说明  |  类型 |  默认值 |  
 |---|---|---|---|
-| url  | url  |  string |   |  
+| url  | 流地址，必填  |  string |   |  
 |  videoEleOpt | videoDom元素参数   | object  |   | 
 |  mediaDataSource | 参考flv.js api   | object  |   | 
 | config  |  参考flv.js api   |  object |   |  
