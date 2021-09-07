@@ -3,9 +3,9 @@ import flvJs from 'flv.js';
 
 interface CokoFlvProps {
   url: string;
-  videoEleOpt?: object;
-  mediaDataSource?: object;
-  config?: object;
+  videoEleOpt?: React.HTMLAttributes<HTMLVideoElement>;
+  mediaDataSource?: flvJs.MediaDataSource;
+  config?: flvJs.Config;
   diffCritical?: number, // 超过*秒以上就进行跳转
   diffSpeedUp?: number, // 超过*秒以上则进行视频加速播放
   latest?: number, // 缓冲区最小时间间隔
@@ -15,7 +15,7 @@ interface CokoFlvProps {
 
 function CokoFlv({ url,
                    videoEleOpt = {},
-                   mediaDataSource = {},
+                   mediaDataSource = {type: 'flv'},
                    config = {},
                    diffCritical = 6,
                    diffSpeedUp = 4,
@@ -33,7 +33,6 @@ function CokoFlv({ url,
       if (videoEle && flvJs.isSupported() && url) {
         const player = flvJs.createPlayer(
           {
-            type: 'flv',
             url,
             ...mediaDataSource,
           },

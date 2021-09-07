@@ -1,9 +1,10 @@
-/// <reference types="react" />
+import React from 'react';
+import flvJs from 'flv.js';
 interface CokoFlvProps {
     url: string;
-    videoEleOpt?: object;
-    mediaDataSource?: object;
-    config?: object;
+    videoEleOpt?: React.HTMLAttributes<HTMLVideoElement>;
+    mediaDataSource?: flvJs.MediaDataSource;
+    config?: flvJs.Config;
     diffCritical?: number;
     diffSpeedUp?: number;
     latest?: number;

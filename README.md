@@ -24,9 +24,9 @@ function App() {
 | 参数  | 说明  |  类型 |  默认值 |  
 |---|---|---|---|
 | url  | 流地址，必填  |  string |   |  
-|  videoEleOpt | videoDom元素参数   | object  |   | 
-|  mediaDataSource | 参考flv.js api   | object  |   | 
-| config  |  参考flv.js api   |  object |   |  
+|  videoEleOpt | videoDom元素参数   | React.HTMLAttributes<HTMLVideoElement>  |   | 
+|  mediaDataSource | 参考flv.js api   | FlvJs.MediaDataSource  |   | 
+| config  |  参考flv.js api   |  FlvJs.Config |   |  
 | diffCritical  |   超过X秒以上就进行跳转   |  number | 6  |  
 | diffSpeedUp  |   超过X秒以上则进行视频加速播放   |  number | 4  |  
 | latest  |   缓冲区最小时间间隔   |  number | 1  |  
